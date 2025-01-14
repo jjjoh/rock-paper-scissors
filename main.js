@@ -32,17 +32,21 @@ function playGame() {
             case 'scissors paper':
             case 'rock scissors':
                 console.log(a,': You win');
+                humanScore++;
                 break;
     
             case 'paper scissors':
             case 'scissors rock':
             case 'rock paper':
                 console.log(a,': You loose');
+                computerScore++;
                 break;
     
             default:
                 console.log(a,': No ones wins');
         }
+        console.log('Your score : ', humanScore, ' / Computer score : ', computerScore )
+        
     }
 
     for( let i = 1; i <= 5 ; i++) {
@@ -51,9 +55,18 @@ function playGame() {
         const computerSelection = getComputerChoice();
 
         playRound(humanSelection, computerSelection);
-
-
     }
+
+    if (humanScore > computerScore) {
+        console.log('Congratulations, you are the winner !')
+    } else if (humanScore < computerScore) {
+        console.log('You lose the game !')
+    } else if (humanScore == computerScore) {
+        console.log('Tie, no winner nor looser !')
+    }
+    
+    console.log('Refresh your browser to play again');
+    
 
 }
 
