@@ -3,9 +3,6 @@
 let computerChoice = "not decided yet";
 let humanChoice = "not decided yet";
 
-let humanScore = 0;
-let computerScore = 0;
-
 function getComputerChoice() {
     const x = Math.random();
     if ( x < 0.334 ) { computerChoice = "rock"}
@@ -24,28 +21,40 @@ function getHumanChoice() {
 
 }
 
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
 
-function playRound(humanChoice, computerChoice) {
-    let a = humanChoice + ' ' + computerChoice;
-    switch (a) {
-        case 'paper rock':
-        case 'scissors paper':
-        case 'rock scissors':
-            console.log(a,': You win');
-            break;
-
-        case 'paper scissors':
-        case 'scissors rock':
-        case 'rock paper':
-            console.log(a,': You loose');
-            break;
-
-        default:
-            console.log(a,': No ones wins');
+    function playRound(humanChoice, computerChoice) {
+        let a = humanChoice + ' ' + computerChoice;
+        switch (a) {
+            case 'paper rock':
+            case 'scissors paper':
+            case 'rock scissors':
+                console.log(a,': You win');
+                break;
+    
+            case 'paper scissors':
+            case 'scissors rock':
+            case 'rock paper':
+                console.log(a,': You loose');
+                break;
+    
+            default:
+                console.log(a,': No ones wins');
+        }
     }
+
+    for( let i = 1; i <= 5 ; i++) {
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+
+
+    }
+
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice()
-
-playRound(humanSelection, computerSelection);
+playGame();
